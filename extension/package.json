@@ -1,0 +1,108 @@
+{
+  "name": "markdown-vault-render",
+  "displayName": "Markdown Vault Render",
+  "description": "Render tabletop & vault Markdown notes to print-ready PDF and Word (.docx)",
+  "version": "1.1.0",
+  "publisher": "jschoudt",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "license": "MIT",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:markdownVaultRender.renderPdf",
+    "onCommand:markdownVaultRender.renderDocx",
+    "onCommand:godsfell.renderPdf"
+  ],
+  "scripts": {
+    "package": "rm -f *.vsix && npx @vscode/vsce package --no-dependencies --allow-missing-repository",
+    "install-extension": "npm run package && \"/Applications/Antigravity IDE.app/Contents/Resources/app/bin/antigravity-ide\" --install-extension *.vsix --force && code --install-extension *.vsix --force"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "Markdown Vault Render",
+      "properties": {
+        "markdownVaultRender.openTarget": {
+          "type": "string",
+          "enum": [
+            "ide",
+            "os",
+            "none"
+          ],
+          "default": "ide",
+          "description": "Where to open the generated file after rendering completes."
+        },
+        "markdownVaultRender.viewColumn": {
+          "type": "string",
+          "enum": [
+            "beside",
+            "active"
+          ],
+          "default": "beside",
+          "description": "Editor column to open the preview in when opening inside the IDE."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "markdownVaultRender.renderPdf",
+        "title": "Render to PDF",
+        "category": "Markdown"
+      },
+      {
+        "command": "markdownVaultRender.renderDocx",
+        "title": "Render to Word (.docx)",
+        "category": "Markdown"
+      },
+      {
+        "command": "godsfell.renderPdf",
+        "title": "Render to PDF (Legacy)",
+        "category": "Markdown"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "markdownVaultRender.renderPdf",
+          "when": "resourceExtname == .md || editorLangId == markdown",
+          "group": "navigation@1"
+        },
+        {
+          "command": "markdownVaultRender.renderDocx",
+          "when": "resourceExtname == .md || editorLangId == markdown",
+          "group": "navigation@2"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "markdownVaultRender.renderPdf",
+          "when": "resourceExtname == .md",
+          "group": "navigation@1"
+        },
+        {
+          "command": "markdownVaultRender.renderDocx",
+          "when": "resourceExtname == .md",
+          "group": "navigation@2"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "markdownVaultRender.renderPdf",
+          "when": "resourceExtname == .md",
+          "group": "navigation@1"
+        },
+        {
+          "command": "markdownVaultRender.renderDocx",
+          "when": "resourceExtname == .md",
+          "group": "navigation@2"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "marked": "^18.1.2"
+  }
+}

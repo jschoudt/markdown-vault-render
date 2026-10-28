@@ -1,0 +1,766 @@
+/* ==========================================================================
+   Godsfell Markdown: Compact Tabletop DM Print & Screen Theme
+   Optimized for: 0.25in Minimal Margins, Single-Column Full-Width Flow,
+   Ink-Efficient Black & White Print, and Pure Markdown Statblocks
+   ========================================================================== */
+
+/* 1. Page Canvas & Minimal Print Margins */
+@page {
+  size: letter;
+  margin: 0.25in !important;
+}
+
+:root {
+  --primary-text: #111111;
+  --heading-text: #000000;
+  --border-dark: #222222;
+  --border-light: #dcdcdc;
+  --bg-card: #f9f9f9;
+  --bg-alt: #f0f0f0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--primary-text);
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* 2. Continuous Flow Container & Full-Width Single-Column Tabletop Layout */
+.page {
+  column-count: 1 !important;
+  columns: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+  contain: none !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: 9.5pt !important;
+  line-height: 1.34 !important;
+  box-sizing: border-box !important;
+}
+
+.page:after {
+  background: none !important; /* Removes decorative Homebrewery corner borders */
+  display: none !important;
+}
+
+.columnWrapper {
+  height: auto !important;
+  column-count: 1 !important;
+  columns: auto !important;
+  width: 100% !important;
+}
+
+/* 3. Section Headers */
+.page h1,
+h1 {
+  font-size: 19pt !important;
+  font-weight: 800 !important;
+  color: var(--heading-text) !important;
+  border-bottom: 2px solid var(--border-dark) !important;
+  margin: 0 0 8px 0 !important;
+  padding-bottom: 3px !important;
+  line-height: 1.15 !important;
+  break-after: avoid !important;
+  page-break-after: avoid !important;
+}
+
+.page h2,
+h2 {
+  font-size: 12.5pt !important;
+  font-weight: 700 !important;
+  color: var(--heading-text) !important;
+  border-bottom: 1px solid var(--border-dark) !important;
+  margin: 8px 0 3px 0 !important;
+  padding-bottom: 2px !important;
+  line-height: 1.2 !important;
+  break-after: avoid !important;
+  page-break-after: avoid !important;
+}
+
+.page h3,
+h3 {
+  font-size: 10.5pt !important;
+  font-weight: 700 !important;
+  color: var(--heading-text) !important;
+  margin: 6px 0 2px 0 !important;
+  line-height: 1.2 !important;
+  break-after: avoid !important;
+  page-break-after: avoid !important;
+}
+
+.page h4,
+h4 {
+  font-size: 9.5pt !important;
+  font-weight: 700 !important;
+  color: var(--heading-text) !important;
+  margin: 5px 0 2px 0 !important;
+  break-after: avoid !important;
+  page-break-after: avoid !important;
+}
+
+.page h5,
+.page h6 {
+  font-size: 9pt !important;
+  font-weight: 600 !important;
+  color: var(--heading-text) !important;
+  margin: 4px 0 2px 0 !important;
+  break-after: avoid !important;
+}
+
+.page hr {
+  border: none !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  margin: 6px 0 !important;
+}
+
+/* 4. Compact Paragraphs and Lists */
+.page p {
+  margin: 0 0 4px 0 !important;
+  text-align: left !important;
+}
+
+.page ul,
+.page ol {
+  margin: 0 0 4px 0 !important;
+  padding-left: 18px !important;
+}
+
+.page li {
+  margin-bottom: 1.5px !important;
+}
+
+/* 5. Pure Markdown Statblock Cards (.statblock) */
+.statblock,
+.page .statblock {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  background-color: var(--bg-card) !important;
+  background-image: none !important;
+  border: 1.5px solid var(--border-dark) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  padding: 6px 10px !important;
+  margin: 8px 0 !important;
+  width: 100% !important;
+  font-size: 8.5pt !important;
+  line-height: 1.25 !important;
+  box-sizing: border-box !important;
+}
+
+.statblock h3 {
+  font-size: 11pt !important;
+  font-weight: 800 !important;
+  color: var(--heading-text) !important;
+  border-bottom: 1.5px solid var(--border-dark) !important;
+  margin: 0 0 3px 0 !important;
+  padding-bottom: 2px !important;
+  line-height: 1.15 !important;
+}
+
+.statblock p {
+  margin: 2px 0 !important;
+}
+
+.statblock ul {
+  margin: 2px 0 !important;
+  padding-left: 16px !important;
+}
+
+.statblock hr {
+  border: none !important;
+  border-bottom: 1px solid #777777 !important;
+  margin: 4px 0 !important;
+}
+
+/* Statblock Attribute Tables */
+.statblock table {
+  width: 100% !important;
+  margin: 3px 0 !important;
+  border-collapse: collapse !important;
+  font-size: 8.5pt !important;
+}
+
+.statblock table th,
+.statblock table td {
+  border: 1px solid #cccccc !important;
+  padding: 2px 5px !important;
+  text-align: center !important;
+}
+
+.statblock table th {
+  background-color: #eaeaea !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+}
+
+/* 6. Legacy Monster Blocks (Homebrewery {{monster,frame}}) fallback */
+.page .monster {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  background: var(--bg-card) !important;
+  background-image: none !important;
+  border: 1.5px solid var(--border-dark) !important;
+  box-shadow: none !important;
+  padding: 6px 10px !important;
+  margin: 8px 0 !important;
+  width: 100% !important;
+  font-size: 8.5pt !important;
+  box-sizing: border-box !important;
+}
+
+.page .monster hr {
+  background: var(--border-dark) !important;
+  border-color: var(--border-dark) !important;
+  margin: 4px 0 !important;
+}
+
+/* 7. Read-Aloud Text, Descriptive Callouts & Blockquotes */
+.page blockquote,
+blockquote,
+.npc-block,
+.npc-card,
+.page .npc-block,
+.page .npc-card,
+.page .note,
+.page .descriptive {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  background-color: #f6f6f6 !important;
+  background-image: none !important;
+  border: 1px solid #d5d5d5 !important;
+  border-left: 3.5px solid var(--border-dark) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  padding: 5px 10px !important;
+  margin: 6px 0 !important;
+  font-style: italic !important;
+  font-size: 9pt !important;
+  line-height: 1.32 !important;
+  box-sizing: border-box !important;
+}
+
+.page blockquote p,
+blockquote p,
+.npc-block p,
+.npc-card p {
+  color: #111111 !important;
+  margin: 2px 0 !important;
+}
+
+/* 8. High-Contrast Reference Tables */
+.page table,
+table {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 6px 0 !important;
+  font-size: 8.5pt !important;
+  box-sizing: border-box !important;
+}
+
+.page table th,
+table th {
+  background-color: var(--bg-alt) !important;
+  border-bottom: 2px solid var(--border-dark) !important;
+  border-top: 1px solid var(--border-light) !important;
+  color: var(--heading-text) !important;
+  padding: 3px 6px !important;
+  text-align: left !important;
+  font-weight: 700 !important;
+}
+
+.page table td,
+table td {
+  border-bottom: 1px solid var(--border-light) !important;
+  padding: 3px 6px !important;
+}
+
+.page table tbody tr:nth-child(even),
+table tbody tr:nth-child(even) {
+  background-color: #fbfbfb !important;
+}
+
+/* 9. Images & Tactical Maps */
+.page img,
+img {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 8px auto !important;
+  filter: none;
+  box-sizing: border-box !important;
+}
+
+/* Scoped greyscale filter when specifically desired for ink-saving print */
+.laser-print img,
+.page.laser-print img,
+img.grayscale,
+.grayscale img {
+  filter: grayscale(100%) contrast(110%) !important;
+}
+
+/* Hide Decorative Watercolor Masks */
+.page .imageMask,
+[class*="watercolor"] {
+  display: none !important;
+}
+
+/* 10. Links: Highlighting On-Screen vs Clean Ink in Print */
+a,
+.page a {
+  color: #0b57d0 !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+
+a:hover,
+.page a:hover {
+  color: #084298 !important;
+}
+
+/* 11. Standalone Encounter Sheets & Initiative Combat Trackers */
+.page-break {
+  page-break-before: always !important;
+  break-before: page !important;
+  clear: both !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.encounter-sheet {
+  page-break-before: always !important;
+  break-before: page !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.encounter-map,
+.encounter-illustration {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.encounter-map img {
+  max-height: 5.4in !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 4px auto !important;
+}
+
+.encounter-illustration img {
+  max-height: 7.0in !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 6px auto !important;
+}
+
+/* 12. Full-Page Rotated Landscape Handouts (Laser Print Tabletop) */
+.landscape-handout {
+  page-break-before: always !important;
+  break-before: page !important;
+  page-break-after: always !important;
+  break-after: page !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  width: 8.0in !important;
+  height: 10.45in !important;
+  max-width: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.landscape-handout p {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.landscape-handout img {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 10.35in !important;
+  max-width: none !important;
+  height: auto !important;
+  max-height: none !important;
+  transform: translate(-50%, -50%) rotate(90deg) !important;
+  transform-origin: center center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  filter: none;
+}
+
+.laser-print .landscape-handout img {
+  filter: grayscale(100%) contrast(110%) !important;
+}
+
+@media screen {
+  .page-break {
+    display: block !important;
+    height: 24px !important;
+    border-top: 2px dashed #888888 !important;
+    margin: 32px 0 20px 0 !important;
+    position: relative !important;
+  }
+  .page-break::before {
+    content: "✂ PAGE BREAK — STANDALONE ENCOUNTER SHEET FOLLOWS";
+    position: absolute;
+    top: -11px;
+    left: 16px;
+    background: #ffffff;
+    padding: 0 10px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #555555;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+  
+  .encounter-sheet,
+  .encounter-map,
+  .encounter-illustration {
+    border: 1.5px solid #222222 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07) !important;
+    padding: 18px 20px !important;
+    margin: 24px 0 !important;
+    background: #ffffff !important;
+    position: relative !important;
+  }
+  
+  .encounter-sheet::before {
+    content: "STANDALONE TABLETOP ENCOUNTER SHEET — PULL OUT FOR TABLE USE";
+    display: inline-block;
+    background: #222222;
+    color: #ffffff;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  .encounter-illustration::before {
+    content: "STANDALONE PLAYER VIEW ILLUSTRATION — PULL OUT / SHOW PLAYERS";
+    display: inline-block;
+    background: #222222;
+    color: #ffffff;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+}
+
+@media print {
+  .page-break {
+    display: block !important;
+    page-break-before: always !important;
+    break-before: page !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    height: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .encounter-sheet,
+  .encounter-map,
+  .encounter-illustration,
+  .landscape-handout {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .encounter-sheet {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+}
+
+.encounter-sheet h1 {
+  font-size: 14pt !important;
+  margin: 0 0 2px 0 !important;
+  padding-bottom: 2px !important;
+  line-height: 1.15 !important;
+}
+
+.encounter-sheet h3 {
+  font-size: 10pt !important;
+  margin: 3px 0 2px 0 !important;
+  border-bottom: 1px solid #666666 !important;
+  padding-bottom: 1px !important;
+  line-height: 1.15 !important;
+}
+
+.encounter-sheet p {
+  margin: 1.5px 0 !important;
+  font-size: 8pt !important;
+  line-height: 1.25 !important;
+}
+
+.encounter-sheet table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 2px 0 4px 0 !important;
+  font-size: 8pt !important;
+  line-height: 1.2 !important;
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.encounter-sheet table th {
+  background-color: #222222 !important;
+  color: #ffffff !important;
+  border: 1px solid #222222 !important;
+  padding: 2.5px 5px !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+.encounter-sheet table td {
+  border: 1px solid #888888 !important;
+  padding: 2px 5px !important;
+  vertical-align: middle !important;
+}
+
+.encounter-sheet table tr:nth-child(even) {
+  background-color: #f7f7f7 !important;
+}
+
+/* Initiative Tracker Table (1st table in encounter sheet) */
+.encounter-sheet table:first-of-type td {
+  height: 16px !important;
+  min-height: 16px !important;
+  padding: 1px 4px !important;
+}
+
+.encounter-sheet .statblock {
+  padding: 3px 6px !important;
+  margin: 3px 0 !important;
+  font-size: 8pt !important;
+  line-height: 1.2 !important;
+}
+
+.encounter-sheet .statblock p {
+  margin: 1px 0 !important;
+}
+
+.encounter-sheet .statblock ul {
+  margin: 1px 0 !important;
+}
+
+.encounter-sheet .statblock h3 {
+  font-size: 9.5pt !important;
+  margin: 2px 0 1px 0 !important;
+  border-bottom: 1px solid #777777 !important;
+  padding-bottom: 1px !important;
+}
+
+.encounter-sheet table:first-of-type th:nth-child(1),
+.encounter-sheet table:first-of-type td:nth-child(1) {
+  width: 8% !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+}
+
+.encounter-sheet table:first-of-type th:nth-child(2),
+.encounter-sheet table:first-of-type td:nth-child(2) {
+  width: 25% !important;
+}
+
+.encounter-sheet table:first-of-type th:nth-child(3),
+.encounter-sheet table:first-of-type td:nth-child(3) {
+  width: 67% !important;
+}
+
+/* Encounter Roster Table (2nd table in encounter sheet) */
+.encounter-sheet table:nth-of-type(2) th:nth-child(1),
+.encounter-sheet table:nth-of-type(2) td:nth-child(1) {
+  width: 21% !important;
+  font-weight: 700 !important;
+}
+
+.encounter-sheet table:nth-of-type(2) th:nth-child(2),
+.encounter-sheet table:nth-of-type(2) td:nth-child(2) {
+  width: 6% !important;
+  text-align: center !important;
+}
+
+.encounter-sheet table:nth-of-type(2) th:nth-child(3),
+.encounter-sheet table:nth-of-type(2) td:nth-child(3) {
+  width: 19% !important;
+}
+
+.encounter-sheet table:nth-of-type(2) th:nth-child(4),
+.encounter-sheet table:nth-of-type(2) td:nth-child(4) {
+  width: 18% !important;
+}
+
+.encounter-sheet table:nth-of-type(2) th:nth-child(5),
+.encounter-sheet table:nth-of-type(2) td:nth-child(5) {
+  width: 36% !important;
+}
+
+@media print {
+  .encounter-sheet table th {
+    background-color: #e0e0e0 !important;
+    color: #000000 !important;
+    border: 1.5px solid #000000 !important;
+  }
+  .encounter-sheet table td {
+    border: 1px solid #444444 !important;
+  }
+  .encounter-sheet table tr:nth-child(even) {
+    background-color: #f4f4f4 !important;
+  }
+}
+
+.tracker-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 6px 0 10px 0 !important;
+  font-size: 8.5pt !important;
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.tracker-table th {
+  background-color: #222222 !important;
+  color: #ffffff !important;
+  border: 1px solid #222222 !important;
+  padding: 4px 6px !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+.tracker-table td {
+  border: 1px solid #777777 !important;
+  padding: 4px 6px !important;
+  vertical-align: middle !important;
+}
+
+.tracker-table tr.monster-row {
+  background-color: #f5f5f5 !important;
+  font-weight: 600 !important;
+}
+
+.tracker-table tr.pc-row {
+  background-color: #ffffff !important;
+}
+
+.tracker-table .col-init {
+  width: 10% !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+}
+
+.tracker-table .col-name {
+  width: 32% !important;
+}
+
+.tracker-table .col-ac {
+  width: 10% !important;
+  text-align: center !important;
+}
+
+.tracker-table .col-hp {
+  width: 24% !important;
+  font-family: monospace, sans-serif !important;
+}
+
+.tracker-table .col-notes {
+  width: 24% !important;
+}
+
+@media print {
+  .tracker-table th {
+    background-color: #e5e5e5 !important;
+    color: #000000 !important;
+    border: 1.5px solid #000000 !important;
+  }
+  .tracker-table td {
+    border: 1px solid #444444 !important;
+  }
+  .tracker-table tr.monster-row {
+    background-color: #f2f2f2 !important;
+  }
+}
+
+/* 12. Explicit Print Media Overrides */
+@media print {
+  @page {
+    size: letter;
+    margin: 0.25in !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    column-count: 1 !important;
+    columns: auto !important;
+  }
+
+  /* In print, links render cleanly as bold text without distracting URLs or colors */
+  a,
+  .page a,
+  .page a.wiki-link {
+    color: #000000 !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+  }
+
+  .statblock,
+  table,
+  blockquote,
+  .monster {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+}

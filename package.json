@@ -1,0 +1,30 @@
+{
+  "name": "markdown-vault-render",
+  "version": "1.0.0",
+  "description": "Universal CLI, library, and IDE extension to render tabletop & vault Markdown documents to PDF, HTML, and Word (.docx).",
+  "main": "lib/index.js",
+  "bin": {
+    "markdown-vault-render": "./bin/cli.js",
+    "render-pdf": "./bin/render-pdf.js",
+    "render-docx": "./bin/render-docx.js",
+    "render-all": "./bin/render-all.js"
+  },
+  "scripts": {
+    "package-extension": "cd extension && npm run package",
+    "install-extension": "cd extension && npm run install-extension"
+  },
+  "keywords": [
+    "markdown",
+    "pdf",
+    "docx",
+    "pandoc",
+    "obsidian",
+    "tabletop",
+    "dnd"
+  ],
+  "author": "jschoudt",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^18.1.1"
+  }
+}
