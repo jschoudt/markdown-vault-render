@@ -136,6 +136,12 @@ markdown-vault-render/
 └── README.md
 ```
 
+## AI Assistance Disclosure
+
+This project was developed with extensive assistance from AI code generation tools. All generated code has been reviewed, refined, and tested by a human maintainer to ensure correctness and quality.
+
+---
+
 ## License
 
 MIT
